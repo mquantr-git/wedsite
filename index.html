@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Website MQ&amp;MD</title>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Imperial+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=Imperial+Script&amp;family=Patrick+Hand&amp;display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f6f7f3;--card:#fff;--ink:#2f3a33;--mute:#7b867e;--accent:#7f9a86;--deep:#5f7a67;--soft:#eaf0e8;--line:#e1e6df;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -71,12 +71,35 @@ textarea{resize:none}
 form .grow{flex:1;min-height:110px}
 form .btn{align-self:center}
 .note{font-size:.8rem;color:var(--mute);text-align:center;min-height:1.2em;margin:.8rem 0 0}
-.wish{padding:.9rem 0;border-bottom:1px solid var(--line)}
-.wish b{color:var(--deep)}.wish small{color:var(--mute)}
+#fw{--a:#f1de96;--b:#f6e6a8;--g1:#fff6c2;--g2:#fdeea8;--g3:#fbe896;--ink:#5c4f22}
+#fs{--a:#f4cfb0;--b:#f8d8be;--g1:#ffe4cd;--g2:#fdd9ba;--g3:#fbcfa9;--ink:#6a4326}
+.forms form{align-items:center}
+.pad{position:relative;flex:none;width:min(100%,320px);aspect-ratio:1/1;margin:.5rem 0 1.3rem}
+.pad::before,.pad::after{content:"";position:absolute;inset:0;border-radius:2px;box-shadow:0 1px 2px rgba(60,50,20,.2)}
+.pad::before{background:var(--a);transform:translate(6px,8px) rotate(1.8deg)}
+.pad::after{background:var(--b);transform:translate(-4px,4px) rotate(-1.3deg)}
+.postit{position:relative;z-index:1;width:100%;height:100%;display:flex;flex-direction:column;gap:.3rem;padding:1.3rem 1.2rem 1rem;background:linear-gradient(172deg,var(--g1) 0%,var(--g2) 55%,var(--g3) 100%);box-shadow:0 1px 1px rgba(60,50,20,.15),0 8px 14px -6px rgba(60,50,20,.28);transform:rotate(-.6deg);transform-origin:50% 0;font-family:"Patrick Hand","Gowun Batang",cursive;color:var(--ink)}
+.postit::before{content:"";position:absolute;left:0;right:0;top:0;height:24px;background:linear-gradient(rgba(120,95,20,.08),transparent);pointer-events:none}
+.postit::after{content:"";position:absolute;right:0;bottom:0;width:38px;height:38px;background:linear-gradient(315deg,rgba(255,255,255,.4) 50%,rgba(120,95,20,.1) 50%);pointer-events:none}
+.postit input,.postit textarea{background:transparent;border:0;border-radius:0;padding:.1rem 0;font:inherit;font-size:1.2rem;color:var(--ink);width:100%}
+.postit input{border-bottom:1.5px dashed rgba(90,70,20,.28)}
+.postit textarea{flex:1;line-height:1.4;min-height:40px}
+.postit ::placeholder{color:rgba(90,70,20,.42)}
+.postit input:focus,.postit textarea:focus{outline:0;border-color:rgba(90,70,20,.55)}
+.postit .from{display:flex;align-items:baseline;gap:.4rem;margin-top:auto;font-size:1.1rem}
+.postit .from input{flex:1;font-size:1.1rem}
+.postit.ghost{position:absolute;inset:0;z-index:3;width:auto;height:auto;pointer-events:none;animation:peel 1.7s cubic-bezier(.45,.05,.55,.95) forwards}
+@keyframes peel{
+ 0%{transform:perspective(900px) rotate3d(1,-.3,0,0deg) rotate(-.6deg);opacity:1}
+ 10%{transform:perspective(900px) rotate3d(1,-.3,0,5deg) rotate(-.6deg)}
+ 48%{transform:perspective(900px) rotate3d(1,-.3,0,46deg) rotate(-.6deg);box-shadow:0 22px 24px -10px rgba(60,50,20,.35)}
+ 70%{transform:perspective(900px) translate(24px,-80px) rotate3d(1,-.3,0,70deg) rotate(6deg) scale(.96);opacity:1}
+ 100%{transform:perspective(900px) translate(44px,-180px) rotate3d(1,-.3,0,84deg) rotate(12deg) scale(.9);opacity:0}}
+@media(prefers-reduced-motion:reduce){.postit.ghost{display:none}}
 footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute)}
 @media(max-width:640px){.cal .d{min-height:48px;padding:.25rem .3rem;font-size:.82rem}.cal .d.on em{display:none}.agenda-row{flex-direction:column;align-items:flex-start}.mini{text-align:left}.mapbox{height:280px}}
 </style>
-</head>
+<script type='text/javascript' nonce='yxQvVJUq7DADRow8ZESbtQ==' src='https://032ee67d-2355-4e99-97a5-badfeea938b1.frame.claudeusercontent.com/5H07GQjRlFcBMiK_SQdMf42MZXh1-oPbyCFrN_XMLztzhEmt2FQorUlyi7XZmpk8FGmghgi2qh5eaQaeM_Oqvudt27RL1vItdiGzplwNPjXOVrTPHU6GEhJYiLfDPHLwdoxRnV0q4Tx26ClEHE7y5hDHQPbSUUpp9zq_ov0BWXR_WdZWEpwm_tVlffkR3vw_jznMASrPWoFPmgIZeC_gXbF4WZMOpe8dKgVxM-gK6QyYvzoF_aa0D-g6G1q5cDGX9B17esVreJedJHyCfOzrWlaqzUo3_yuSkEsIi1DDQIIclUFWCeDNRHLAnNNbb8gWTlXw3QaBb-tAILJ9YmS1nzIvH6-RhJzSg44n78zBpSBVY_1hQ8Uv7C6HdHKFtfLlJ0u15g2Fv3H2ybd22a_3BeXli5Zo67Z1Z3iqcjkBoJpTcHcUlI7SCOcH77sUNUZeOOqVJE_eFcUL3vzcPmUDrezeiTghe0-9YSZdgD0P9FF0lFBl7-0GZmXvA1pVFjp0HJUH5oMk9YEaEf7NYNrbW385Dj3TF0hcOyJ9xaIf9Bwehgf_TOc0UBazAovXenf8kz1JZC6KEXJmVShQRqI26cZ2Xh1jvzMoYSGG7HNkWLdHSoBdRZcelScks1k1h0zB-2D0jiJXlrxbZ0_kcI3n1dfvsMhHDh-XXT1bF4K1VaqLFpcHPBFFJ3BSBcevCQG56yWKUjLqNwvNxQXR61HRrg'></script></head>
 <body>
 
 <header class="hero" id="hero">
@@ -94,7 +117,7 @@ footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute)}
     <p>Thứ Năm, 24 tháng 12, 2026</p>
     <p style="margin-top:1.5rem"><a class="btn" href="#rsvp" style="background:#fff;color:var(--deep)">Gửi lời chúc</a></p>
   </div>
-  <label class="photo-btn">📷 Đổi ảnh bìa<input type="file" id="photo" accept="image/*" hidden></label>
+  <label class="photo-btn">📷 Đổi ảnh bìa<input type="file" id="photo" accept="image/*" hidden=""></label>
 </header>
 
 <section id="time">
@@ -119,7 +142,7 @@ footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute)}
   <div class="mapbox">
     <div class="venue-card"><b>Trung Tâm Tiệc Cưới &amp; Sự Kiện Promes Center</b><span>Xuân Thủy, Hà Nội</span></div>
     <div class="mapfb" id="mapfb">
-      <svg viewBox="0 0 800 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <svg viewbox="0 0 800 340" preserveaspectratio="xMidYMid slice" aria-hidden="true">
         <rect width="800" height="340" fill="#eef2ea"/>
         <path d="M-10 250 C120 220 180 300 300 290 C420 280 440 330 560 335 L560 350 L-10 350Z" fill="#cfe0e4"/>
         <rect x="610" y="30" width="150" height="90" rx="14" fill="#d9e6d3"/>
@@ -157,21 +180,24 @@ footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute)}
     <div class="tabs"><button class="on" data-t="wish">💌 Lời nhắn</button><button data-t="song">🎵 Yêu cầu nhạc</button></div>
     <div class="forms">
     <form id="fw">
-      <input id="wname" placeholder="Tên của bạn" required maxlength="60">
-      <textarea id="wmsg" class="grow" rows="4" placeholder="Lời chúc dành cho cô dâu chú rể…" required maxlength="500"></textarea>
+      <div class="pad"><div class="postit">
+        <textarea id="wmsg" placeholder="Viết lời chúc của bạn lên tờ giấy này…" required="" maxlength="500"></textarea>
+        <label class="from">Từ: <input id="wname" placeholder="tên của bạn" required="" maxlength="60"></label>
+      </div></div>
       <button class="btn" type="submit">Gửi lời chúc</button>
     </form>
-    <form id="fs" hidden>
-      <input id="sname" placeholder="Tên của bạn" required maxlength="60">
-      <input id="ssong" placeholder="Tên bài hát" required maxlength="100">
-      <input id="sartist" placeholder="Ca sĩ" maxlength="80">
-      <textarea id="snote" class="grow" rows="3" placeholder="Lời nhắn kèm theo (không bắt buộc)" maxlength="200"></textarea>
+    <form id="fs" hidden="">
+      <div class="pad"><div class="postit">
+        <input id="ssong" placeholder="Tên bài hát" required="" maxlength="100">
+        <input id="sartist" placeholder="Ca sĩ" maxlength="80">
+        <textarea id="snote" placeholder="Lời nhắn kèm theo (không bắt buộc)" maxlength="200"></textarea>
+        <label class="from">Từ: <input id="sname" placeholder="tên của bạn" required="" maxlength="60"></label>
+      </div></div>
       <button class="btn" type="submit">Gửi yêu cầu</button>
     </form>
     </div>
     <p class="note" id="status"></p>
   </div>
-  <div id="list" style="margin-top:1rem"></div>
 </section>
 
 <footer><div class="script" style="font-size:2.2rem;color:var(--deep)">Minh Quân &amp; Mai Dung</div>Rất mong được gặp bạn ♥</footer>
@@ -233,31 +259,23 @@ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));
   $("fw").hidden=b.dataset.t!=="wish";$("fs").hidden=b.dataset.t!=="song";$("status").textContent=""});
 
-// Lưu & hiển thị
-let col=null,items=[];
-function render(){
-  items.sort((a,b)=>b.t-a.t);
-  $("list").innerHTML=items.slice(0,50).map(w=>`<div class="wish"><b>${esc(w.name)}</b> <small>${w.type==="song"?"🎵 yêu cầu bài hát":"💌 lời nhắn"} · ${new Date(w.t).toLocaleDateString("vi-VN")}</small>
-    ${w.song?`<div>🎶 <strong>${esc(w.song)}</strong>${w.artist?" – "+esc(w.artist):""}</div>`:""}${w.msg?`<div>${esc(w.msg)}</div>`:""}</div>`).join("");
+function peel(form,clear){
+  const n=form.querySelector(".postit");
+  if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
+    const g=n.cloneNode(true),ta=n.querySelectorAll("textarea"),inp=n.querySelectorAll("input");
+    g.querySelectorAll("textarea").forEach((t,i)=>t.textContent=ta[i].value);
+    g.querySelectorAll("input").forEach((x,i)=>{x.setAttribute("value",inp[i].value);x.removeAttribute("required")});
+    g.querySelectorAll("[id]").forEach(e=>e.removeAttribute("id"));
+    g.querySelectorAll("input,textarea").forEach(e=>{e.tabIndex=-1;e.readOnly=true});
+    g.classList.add("ghost");g.setAttribute("aria-hidden","true");
+    g.addEventListener("animationend",()=>g.remove());
+    n.parentElement.appendChild(g);
+  }
+  clear();
 }
-(async()=>{try{
-  const db=await window.claude?.use("db");if(!db)return;
-  col=db.collection("wishes");
-  col.orderBy("t","desc").limit(50).onSnapshot(s=>{items=s.docs.map(d=>d.data());render()});
-}catch(e){}})();
-
-async function send(w){
-  try{
-    if(col){await col.doc("w"+w.t+Math.random().toString(36).slice(2,6)).set(w);$("status").textContent="Đã gửi! Cảm ơn bạn ♥"}
-    else{items.push(w);render();$("status").textContent="Đã ghi nhận trên thiết bị của bạn. Cảm ơn bạn ♥"}
-    return true;
-  }catch(err){items.push(w);render();$("status").textContent="Chưa gửi được lên máy chủ, đã lưu tạm trên thiết bị.";return true}
-}
-$("fw").onsubmit=async e=>{e.preventDefault();
-  await send({type:"wish",name:$("wname").value.trim(),msg:$("wmsg").value.trim(),t:Date.now()});$("wmsg").value=""};
-$("fs").onsubmit=async e=>{e.preventDefault();
-  await send({type:"song",name:$("sname").value.trim(),song:$("ssong").value.trim(),artist:$("sartist").value.trim(),msg:$("snote").value.trim(),t:Date.now()});
-  $("ssong").value=$("sartist").value=$("snote").value=""};
+function sent(){const t=$("status");t.textContent="Đã gửi! Cảm ơn bạn ♥";clearTimeout(sent.id);sent.id=setTimeout(()=>t.textContent="",4000)}
+$("fw").onsubmit=e=>{e.preventDefault();peel($("fw"),()=>{$("wmsg").value=""});sent()};
+$("fs").onsubmit=e=>{e.preventDefault();peel($("fs"),()=>{$("ssong").value=$("sartist").value=$("snote").value=""});sent()};
 </script>
 </body>
 </html>
