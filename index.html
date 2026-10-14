@@ -83,8 +83,8 @@ textarea{resize:none}
 form .grow{flex:1;min-height:110px}
 form .btn{align-self:center}
 .note{font-size:.8rem;color:var(--mute);text-align:center;min-height:1.2em;margin:.8rem 0 0}
-#fw{--a:#f1de96;--b:#f6e6a8;--g1:#fff6c2;--g2:#fdeea8;--g3:#fbe896;--ink:#5c4f22}
-#fs{--a:#f4cfb0;--b:#f8d8be;--g1:#ffe4cd;--g2:#fdd9ba;--g3:#fbcfa9;--ink:#6a4326}
+#fw{--a:#f1de96;--b:#f6e6a8;--g1:#fff6c2;--g2:#fdeea8;--g3:#fbe896;--ink:#5c4f22;--f0:#e6d27a;--f1:#fff9d4;--f2:#fcefaa}
+#fs{--a:#f4cfb0;--b:#f8d8be;--g1:#ffe4cd;--g2:#fdd9ba;--g3:#fbcfa9;--ink:#6a4326;--f0:#ecbd9b;--f1:#ffeadb;--f2:#fcdabc}
 .forms form{align-items:center}
 .pad{position:relative;flex:none;width:min(100%,320px);aspect-ratio:1/1;margin:.5rem 0 1.3rem}
 .pad::before,.pad::after{content:"";position:absolute;inset:0;border-radius:2px;box-shadow:0 1px 2px rgba(60,50,20,.2)}
@@ -100,18 +100,14 @@ form .btn{align-self:center}
 .postit input:focus,.postit textarea:focus{outline:0;border-color:rgba(90,70,20,.55)}
 .postit .from{display:flex;align-items:baseline;gap:.4rem;margin-top:auto;font-size:1.1rem}
 .postit .from input{flex:1;font-size:1.1rem}
-.postit.ghost{position:absolute;inset:0;z-index:3;width:auto;height:auto;pointer-events:none;animation:peel 1.7s cubic-bezier(.45,.05,.55,.95) forwards}
-@keyframes peel{
- 0%{transform:perspective(900px) rotate3d(1,-.3,0,0deg) rotate(-.6deg);opacity:1}
- 10%{transform:perspective(900px) rotate3d(1,-.3,0,5deg) rotate(-.6deg)}
- 48%{transform:perspective(900px) rotate3d(1,-.3,0,46deg) rotate(-.6deg);box-shadow:0 22px 24px -10px rgba(60,50,20,.35)}
- 70%{transform:perspective(900px) translate(24px,-80px) rotate3d(1,-.3,0,70deg) rotate(6deg) scale(.96);opacity:1}
- 100%{transform:perspective(900px) translate(44px,-180px) rotate3d(1,-.3,0,84deg) rotate(12deg) scale(.9);opacity:0}}
-@media(prefers-reduced-motion:reduce){.postit.ghost{display:none}}
+.pg{position:absolute;inset:0;z-index:3;pointer-events:none;transform-origin:50% 0;transform:rotate(-.6deg);will-change:transform,opacity}
+.pg .base{position:absolute;inset:0;transform:none;z-index:auto}
+.pg .flapw{position:absolute;left:-100%;top:-100%;width:300%;height:300%;filter:drop-shadow(0 8px 9px rgba(60,50,20,.32))}
+.pg .flap{position:absolute;inset:0}
 footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute)}
 @media(max-width:640px){.cal .d{min-height:48px;padding:.25rem .3rem;font-size:.82rem}.cal .d.on em{display:none}.agenda-row{flex-direction:column;align-items:flex-start}.mini{text-align:left}.mapbox{height:280px}}
 </style>
-<script type='text/javascript' nonce='mMHVorM0u8Jjpo586VJC2Q==' src='https://032ee67d-2355-4e99-97a5-badfeea938b1.frame.claudeusercontent.com/xOi8I00hd77dpkTbvM9luo4nDCh_R-9pLVcFTccy_mD7wGJgI_N29oCjCzfc0veO9WJsnT2yymtlR56NE2bXu0GlFFIxWYIYCX4tg5E9dxe_cZndwwkRs96_RPu92D1NOwm0Dt89Vf10df31hUuULNjls2imPdFg-jUO69eJvsnTzBu4SSzDg8v8zTtn66HNnNJkW0ZH_GPiNt5TCWc7hDEihkjuDr0HBoAULaXhEy1tW9RrlvUrodFEBflMw-mIMaUJuYV1RuxkvbdIIiZ6iXj8Xui_0dvPbCfsxqEg4gkT5b_q-uOwUB5oRom8eZQQCSO0R4hYFebD6SSgZEI99tyazLDgXUZv5Q4cRmICjNNDRaGeL0NQX0Uo_TDj6iD0EgMIJX0YuRSpxoFxO0MUIGY5DLDwe9ie76vlsCLf0OAA7ZpzZ2GhpcC5_IbWZ-7ODhwHXI6QicTRPtmFwRvbVHYSM0l-viaG9-HluZYFobgiM7_se-rX4bfbMXuWmMqvOIZDGCcgNTkD_Yb6nRwHIOXl8Awro8IDqZ7EHOHDAnnZIXl1c2l605wvcAeT4dDF3aB22WvBsKXsfUhlJNBO2FIjEhhoeohIEQruEwuti9DwlolSgD-9dhx_ASxzrJTa2Cak9oRJptqBG69wSiVw40RCwR7-8jDX_8aAKJ0D8S6S4CqCVjAKIgQSJm781OY36q53AutH7d1b0UXmVEyI8g'></script></head>
+<script type='text/javascript' nonce='mgR3zK3Ib95GcwjO95WmuA==' src='https://032ee67d-2355-4e99-97a5-badfeea938b1.frame.claudeusercontent.com/CTTVDnEhfeFrz5Lb9nQj8Sz5Mmp8yjwSZnGfIKTTs6kxyM9SDRsq6pEf4MQXLp0Wy4tJe4vQWHlNmI6h5fpMBZBajKgZ2dxlMEDG_IVKiNzpS7UJj2RXHvH03c4wN156JbEOztZHFngQZfD5P0-xhVS1dNwYLEYF7abmNdYBL_B0GhP8wcHzWcI26jmzVDcxrxFR9N0B2X6RNyc5mJIpG_-Hfxs6m1mn7E0EtJg6iGGb5IYRGlKkS09dwJFMBGPwGX6W8YgczY6wVBKqG1ddXkpBQi3odrz7TwjZkkQoQBLIqpA4MGZGqLnlHcqQULuq-ZGNj_x7TfX-itYPhWRZXprMtWLeaV-XtCKlaYbXQ5voZuYqj4fubv_SPzdeVuq3sPlXzGoajBllDbn0MDRuwhcTrNeEGg7OLIbIQ5qi-v-iUBww3LbA0LOSW19VL7HsmmoH8mMNISpME5H2ZwlGu_Sw4I0qng8z_rPEB4wtyu6Iut0BkKkmM7J0hMthfHn-k88fpJK1TFeWyiUu4mZo0fkVvYNpQdoiErH3CWu833oR02ffiBpMa6wqaWkCSKj67dMnrra8mlbGEtQXtC-Y_s7bdXHqywHDrVE9tZiVHv2Xn-KhZft8K7mYkwyf7QueXFXqN37Mz4TV4DdwzOo9_PlxXvrR_wiOV1e4ISO-r_7gWw7q2SQl7bT-NjyXbnh5Rro9Tn8eskezVmVLWN09FQ'></script></head>
 <body>
 
 <header class="hero" id="hero">
@@ -282,17 +278,48 @@ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
 
 function peel(form,clear){
   const n=form.querySelector(".postit");
-  if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
-    const g=n.cloneNode(true),ta=n.querySelectorAll("textarea"),inp=n.querySelectorAll("input");
-    g.querySelectorAll("textarea").forEach((t,i)=>t.textContent=ta[i].value);
-    g.querySelectorAll("input").forEach((x,i)=>{x.setAttribute("value",inp[i].value);x.removeAttribute("required")});
-    g.querySelectorAll("[id]").forEach(e=>e.removeAttribute("id"));
-    g.querySelectorAll("input,textarea").forEach(e=>{e.tabIndex=-1;e.readOnly=true});
-    g.classList.add("ghost");g.setAttribute("aria-hidden","true");
-    g.addEventListener("animationend",()=>g.remove());
-    n.parentElement.appendChild(g);
-  }
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches){clear();return}
+  const pad=n.parentElement,W=n.offsetWidth,H=n.offsetHeight;
+  const base=n.cloneNode(true),ta=n.querySelectorAll("textarea"),inp=n.querySelectorAll("input");
+  base.querySelectorAll("textarea").forEach((t,i)=>t.textContent=ta[i].value);
+  base.querySelectorAll("input").forEach((x,i)=>{x.setAttribute("value",inp[i].value);x.removeAttribute("required")});
+  base.querySelectorAll("[id]").forEach(e=>e.removeAttribute("id"));
+  base.querySelectorAll("input,textarea").forEach(e=>{e.tabIndex=-1;e.readOnly=true});
+  base.classList.add("base");
+  const g=document.createElement("div"),fw=document.createElement("div"),fl=document.createElement("div");
+  g.className="pg";g.setAttribute("aria-hidden","true");fw.className="flapw";fl.className="flap";
+  fw.appendChild(fl);g.append(base,fw);pad.appendChild(g);
   clear();
+
+  // Hình học: nếp gấp quét chéo từ góc dưới phải lên trên (pháp tuyến N), phần góc được lật lên đè lên tờ giấy
+  const len=Math.hypot(.34,.94),N=[-.34/len,-.94/len];
+  const sq=[[0,0],[W,0],[W,H],[0,H]],dot=p=>p[0]*N[0]+p[1]*N[1];
+  const sv=sq.map(dot),smin=Math.min(...sv),span=Math.max(...sv)-smin;
+  const ang=Math.atan2(N[0],-N[1]),deg=ang*180/Math.PI;
+  const Lg=3*W*Math.abs(Math.sin(ang))+3*H*Math.abs(Math.cos(ang));
+  const clip=(poly,f,below)=>{const out=[];
+    for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],da=dot(a)-f,db=dot(b)-f,ia=below?da<=0:da>=0,ib=below?db<=0:db>=0;
+      if(ia)out.push(a);
+      if(ia!==ib){const t=da/(da-db);out.push([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t])}}
+    return out};
+  const poly=pts=>pts.length<3?"polygon(0 0,0 0,0 0)":"polygon("+pts.map(p=>p[0].toFixed(1)+"px "+p[1].toFixed(1)+"px").join(",")+")";
+  function frame(prog){
+    const f=smin+span*(.015+.66*prog);
+    base.style.clipPath=poly(clip(sq,f,false));
+    fl.style.clipPath=poly(clip(sq,f,true).map(p=>{const d=2*(f-dot(p));return[p[0]+d*N[0]+W,p[1]+d*N[1]+H]}));
+    const R=Math.max(4,Math.min(.2*W,.5*(f-smin))),pf=f-.5*(W*N[0]+H*N[1])+Lg/2;
+    fl.style.background=`linear-gradient(${deg}deg,var(--f0) ${pf}px,var(--f1) ${pf+R*.5}px,var(--f2) ${pf+R*1.3}px)`;
+  }
+  const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,t0=performance.now(),T=1900;
+  frame(0);
+  (function loop(now){
+    const t=Math.max(0,now-t0);
+    frame(ease(Math.min(1,t/1250)));
+    const d=Math.max(0,Math.min(1,(t-950)/950)),e=d*d;   // mép trên bong ra dần sau khi bóc
+    g.style.transform=`translate(${e*50}px,${-e*170}px) rotate(${-.6+e*10}deg)`;
+    g.style.opacity=t<1250?1:Math.max(0,1-(t-1250)/650);   // bóc xong thì mờ dần về 0
+    if(t<T)requestAnimationFrame(loop);else g.remove();
+  })(t0);
 }
 function sent(){const t=$("status");t.textContent="Đã gửi! Cảm ơn bạn ♥";clearTimeout(sent.id);sent.id=setTimeout(()=>t.textContent="",4000)}
 $("fw").onsubmit=e=>{e.preventDefault();peel($("fw"),()=>{$("wmsg").value=""});sent()};
